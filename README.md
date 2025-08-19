@@ -1,5 +1,3 @@
-# gemini-chatbot
-A simple terminal chatbot using Google Gemini 2.5 Flash API.
 # Gemini Chatbot (Python)
 
 This is a simple terminal-based chatbot using **Google Gemini 2.5 Flash API**.
