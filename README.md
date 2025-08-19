@@ -15,4 +15,4 @@ This is a simple terminal-based chatbot using **Google Gemini 2.5 Flash API**.
    ```bash
    git clone https://github.com/<warisha70>/gemini-chatbot.git
    cd gemini-chatbot
-  API KEY (I'm using): AIzaSyAzYCvkTv0xKo7WjnGmQ5o-n_aP7ZwrzIg
+  
