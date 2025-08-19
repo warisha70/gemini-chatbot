@@ -4,14 +4,14 @@ A simple terminal chatbot using Google Gemini 2.5 Flash API.
 
 This is a simple terminal-based chatbot using **Google Gemini 2.5 Flash API**.
 
-## 🚀 Features
+##  Features
 - Accepts text input from the terminal
 - Sends queries to Google Gemini 2.5 Flash
 - Displays AI-generated responses
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 
 1. Clone this repository:
    ```bash
