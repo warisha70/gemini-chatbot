@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Configure Gemini API
 # ⚠️ Replace with your actual API key
-API_KEY = "YOUR_GEMINI_API_KEY"
+API_KEY = "AIzaSyAzYCvkTv0xKo7WjnGmQ5o-n_aP7ZwrzIg"
 genai.configure(api_key=API_KEY)
 
 # Create a Gemini model
@@ -39,3 +39,4 @@ def chat():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
