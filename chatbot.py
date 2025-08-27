@@ -1,12 +1,10 @@
 from flask import Flask, request, jsonify
 import google.generativeai as genai
-import os
 
 # Initialize Flask app
 app = Flask(__name__)
 
 # Configure Gemini API
-# ⚠️ Replace with your actual API key
 API_KEY = "AIzaSyAzYCvkTv0xKo7WjnGmQ5o-n_aP7ZwrzIg"
 genai.configure(api_key=API_KEY)
 
@@ -39,4 +37,3 @@ def chat():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
