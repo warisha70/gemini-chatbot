@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f7f7; padding: 20px; }
+    .chatbox { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .messages { height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; background: #fafafa; }
+    .msg { margin: 5px 0; }
+    .user { font-weight: bold; color: #007bff; }
+    .bot { font-weight: bold; color: #28a745; }
+    input, button { padding: 10px; font-size: 14px; }
+    input { width: 70%; }
+    button { width: 25%; }
+  </style>
+</head>
+<body>
+  <div class="chatbox">
+    <h2>🤖 My Chatbot</h2>
+    <div class="messages" id="messages"></div>
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    const API_URL = "https://web-production-ce39.up.railway.app/chat";
+
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const messagesDiv = document.getElementById("messages");
+      const userMessage = input.value;
+
+      if (!userMessage) return;
+
+      // Show user message
+      messagesDiv.innerHTML += `<div class="msg"><span class="user">You:</span> ${userMessage}</div>`;
+      input.value = "";
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: userMessage })
+        });
+
+        const data = await response.json();
+
+        if (data.bot_reply) {
+          messagesDiv.innerHTML += `<div class="msg"><span class="bot">Bot:</span> ${data.bot_reply}</div>`;
+        } else {
+          messagesDiv.innerHTML += `<div class="msg"><span class="bot">Bot:</span> ❌ Error: ${data.error}</div>`;
+        }
+
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      } catch (err) {
+        messagesDiv.innerHTML += `<div class="msg"><span class="bot">Bot:</span> ⚠️ Network error</div>`;
+      }
+    }
+  </script>
+</body>
+</html>
