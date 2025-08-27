@@ -1,8 +1,14 @@
 from flask import Flask, request, jsonify
 import google.generativeai as genai
 
-# Initialize Flask app
+
+from flask_cors import CORS   # import this
+
+import os
+
 app = Flask(__name__)
+CORS(app)   #  allow all domains (for testing/demo)
+
 
 # Configure Gemini API
 API_KEY = "AIzaSyAzYCvkTv0xKo7WjnGmQ5o-n_aP7ZwrzIg"
